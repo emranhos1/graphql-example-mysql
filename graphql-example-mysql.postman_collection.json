@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "29646114-707d-42d7-ad2a-09c409a36612",
+		"name": "graphql-example-mysql",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "nationalities/rest/graphql{all}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query nationalities {\n    nationalities {\n        updateDate\n        updateUser\n        entryDate\n        entryUser\n        nationalityCode\n        nationalityName\n        nationalityShortName\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9191/rest/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"rest",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "nationality/rest/graphql{id}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query nationality {\n    nationality (id: \"2\"){\n        updateDate\n        updateUser\n        entryDate\n        entryUser\n        nationalityCode\n        nationalityName\n        nationalityShortName\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9191/rest/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"rest",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "genders/rest/graphql{all}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query genders {\n    genders {\n        updateDate\n        updateUser\n        entryDate\n        entryUser\n        sexCode\n        genderName\n        shortGenderName\n    }\n}",
+						"variables": ""
+					},
+					"options": {
+						"graphql": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9191/rest/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"rest",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gender/rest/graphql{id}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query gender {\n    gender (id: \"1\"){\n        updateDate\n        updateUser\n        entryDate\n        entryUser\n        sexCode\n        genderName\n        shortGenderName\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9191/rest/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"rest",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patients/rest/graphql{all}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query patients {\n    patients {\n        patientNo\n        updateDate\n        updateUser\n        entryDate\n        entryUser\n        firstName\n        lastName\n        phoneNo\n        email\n        genderCode\n        nationalityCode\n        gender{\n            updateDate\n            updateUser\n            entryDate\n            entryUser\n            sexCode\n            genderName\n            shortGenderName\n        }\n        nationality{\n            updateDate\n            updateUser\n            entryDate\n            entryUser\n            nationalityCode\n            nationalityName\n            nationalityShortName\n        }\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9191/rest/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"rest",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patient/rest/graphql{id}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query patient {\n    patient(id : \"1\") {\n        patientNo\n        updateDate\n        updateUser\n        entryDate\n        entryUser\n        firstName\n        lastName\n        phoneNo\n        email\n        genderCode\n        nationalityCode\n        gender{\n            updateDate\n            updateUser\n            entryDate\n            entryUser\n            sexCode\n            genderName\n            shortGenderName\n        }\n        nationality{\n            updateDate\n            updateUser\n            entryDate\n            entryUser\n            nationalityCode\n            nationalityName\n            nationalityShortName\n        }\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9191/rest/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"rest",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveGender/rest/graphql{entity}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation saveGender($gender: GenderIn!) {\n    gender: saveGender(in: $gender) {\n        updateDate\n        updateUser\n        entryDate\n        entryUser\n        sexCode\n        genderName\n        shortGenderName\n    }\n}",
+						"variables": "{\r\n    \"gender\":{\r\n        \"sexCode\":\"5\",\r\n        \"genderName\":\"3rd Gender\",\r\n        \"shortGenderName\":\"T\"\r\n    }\r\n}"
+					},
+					"options": {
+						"graphql": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9191/rest/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"rest",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateGender/rest/graphql{entity}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation updateGender($sexCode: String!, $gender: GenderIn!) {\n    gender: updateGender(id: $sexCode, in: $gender) {\n        updateDate\n        updateUser\n        entryDate\n        entryUser\n        sexCode\n        genderName\n        shortGenderName\n    }\n}",
+						"variables": "{\r\n    \"gender\":{\r\n        \"sexCode\":\"5\",\r\n        \"genderName\":\"3rd\",\r\n        \"shortGenderName\":\"T\"\r\n    },\r\n    \"sexCode\" : \"5\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9191/rest/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"rest",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveNationality/rest/graphql{entity}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation saveNationality($nationality: NationalityIn!) {\n    nationality: saveNationality(in: $nationality) {\n        updateDate\n        updateUser\n        entryDate\n        entryUser\n        nationalityCode\n        nationalityName\n        nationalityShortName\n    }\n}",
+						"variables": "{\r\n    \"nationality\":{\r\n        \"nationalityCode\":\"7\",\r\n        \"nationalityName\":\"DDDDD\",\r\n        \"nationalityShortName\":\"D\"\r\n    }\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9191/rest/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"rest",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateNationality/rest/graphql{entity}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation updateNationality($nationalityCode: String!, $nationality: NationalityIn!) {\n    nationality: updateNationality(id: $nationalityCode, in: $nationality) {\n        updateDate\n        updateUser\n        entryDate\n        entryUser\n        nationalityCode\n        nationalityName\n        nationalityShortName\n    }\n}",
+						"variables": "{\r\n    \"nationality\":{\r\n        \"nationalityCode\":\"7\",\r\n        \"nationalityName\":\"EEEE\",\r\n        \"nationalityShortName\":\"D\"\r\n    },\r\n    \"nationalityCode\" : \"7\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9191/rest/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"rest",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
