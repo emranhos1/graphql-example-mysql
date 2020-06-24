@@ -1,0 +1,69 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    nationalities: [Nationality]
+    nationality(id: String): Nationality
+    genders: [Gender]
+    gender(id: String): Gender
+    patients: [Patient]
+    patient(id: String): Patient
+}
+
+type Mutation {
+    saveGender(in: GenderIn!): Gender!
+    updateGender(id: String!, in: GenderIn!): Gender!
+
+    saveNationality(in: NationalityIn!): Nationality!
+    updateNationality(id: String!, in: NationalityIn!): Nationality!
+}
+
+type Patient {
+    patientNo: String
+    updateDate: String
+    updateUser: String
+    entryDate: String
+    entryUser: String
+    firstName: String
+    lastName: String
+    phoneNo: String
+    email: String
+    genderCode: String
+    nationalityCode: String
+    gender: Gender
+    nationality: Nationality
+}
+
+input GenderIn {
+    sexCode: String
+    genderName: String
+    shortGenderName: String
+}
+
+type Gender {
+    updateDate: String
+    updateUser: String
+    entryDate: String
+    entryUser: String
+    sexCode: String
+    genderName: String
+    shortGenderName: String
+}
+
+input NationalityIn {
+    nationalityCode: String
+    nationalityName: String
+    nationalityShortName: String
+}
+
+type Nationality {
+    updateDate: String
+    updateUser: String
+    entryDate: String
+    entryUser: String
+    nationalityCode: String
+    nationalityName: String
+    nationalityShortName: String
+}
